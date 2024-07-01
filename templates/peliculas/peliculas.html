@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+<h1 class="h3 text-center mt-4 mb-2">Nuestra seleccion de peliculas</h1>
+<div class="w-100 d-flex justify-content-end p-2">
+    <a class="btn btn-success" href="/movies/create"><i class="bi bi-plus-circle-fill"></i> CREAR PELICULA</a>
+</div>
+<table class="table mt-2">
+    <thead class="table-secondary">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Duracion</th>
+            <th>Imagen</th>
+            <th>Director</th>
+            <th>Estreno</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pelicula in peliculas %}
+        <tr>
+            <td>{{ pelicula[1] }}</td>
+            <td>{{ pelicula[2] }}</td>
+            <td>{{ pelicula[3] }} min</td>
+            <td><img style="width: 100px; height: 150px; object-fit: cover;" src={{ pelicula[4] }} /></td>
+            <td>{{ pelicula[5] }}</td>
+            <td>{{ pelicula[6] }}</td>
+            <td><a href="/movies/edit?id={{pelicula[0]}}"><i class="bi bi-pencil-fill"></i></a></td>
+            <td><a href="/movies/delete?id={{pelicula[0]}}"
+                    onclick="return confirm('¿Estás seguro de que deseas eliminar la película \'{{ pelicula[1] }}\'?');">
+                    <i class="bi bi-trash-fill"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'footer.html' %}

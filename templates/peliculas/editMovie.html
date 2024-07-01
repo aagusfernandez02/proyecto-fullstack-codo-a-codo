@@ -1,0 +1,38 @@
+{% include 'header.html' %}
+
+<div class="w-50 mx-auto mt-5 py-3 px-5 border bg-body-secondary">
+    <form action="/movies/edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" id="id_input" value="{{ pelicula[0][0] }}">
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" type="text" name="nombre" id="nombre_input" value="{{ pelicula[0][1] }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="descripcion">Descripcion</label>
+            <textarea class="form-control" type="text" name="descripcion"
+                id="descripcion_input">{{ pelicula[0][2] }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="duracion">Duracion (min)</label>
+            <input class="form-control" type="number" name="duracion" id="duracion_input" value="{{ pelicula[0][3] }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="img">Imagen</label>
+            <input class="form-control" type="text" name="img" id="img_input" value="{{ pelicula[0][4] }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="director">Director</label>
+            <input class="form-control" type="text" name="director" id="director_input" value="{{ pelicula[0][5] }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="anio_estreno">Anio estreno</label>
+            <input class="form-control" type="number" name="anio_estreno" id="anio_estreno_input"
+                value="{{ pelicula[0][6] }}">
+        </div>
+        <div class="d-flex justify-content-around mt-5">
+            <button class="btn btn-success" type="submit">GUARDAR</button>
+            <a class="btn btn-danger" href="/movies/get">CANCELAR</a>
+        </div>
+    </form>
+</div>
+{% include 'footer.html' %}
