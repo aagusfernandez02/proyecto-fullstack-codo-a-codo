@@ -3,7 +3,7 @@
 <div class="w-100 d-flex justify-content-end p-2">
     <a class="btn btn-success" href="/movies/create"><i class="bi bi-plus-circle-fill"></i> CREAR PELICULA</a>
 </div>
-<table class="table mt-2">
+<table class="table mt-2 ms-1 me-1">
     <thead class="table-secondary">
         <tr>
             <th>Nombre</th>
@@ -22,12 +22,13 @@
             <td>{{ pelicula[1] }}</td>
             <td>{{ pelicula[2] }}</td>
             <td>{{ pelicula[3] }} min</td>
-            <td><img style="width: 100px; height: 150px; object-fit: cover;" src={{ pelicula[4] }} /></td>
+            <td><a href={{ pelicula[4] }} target="_blank"><img style="width: 100px; height: 150px; object-fit: cover;" src={{ pelicula[4] }} /></a></td>
             <td>{{ pelicula[5] }}</td>
             <td>{{ pelicula[6] }}</td>
-            <td><a href="/movies/edit?id={{pelicula[0]}}"><i class="bi bi-pencil-fill"></i></a></td>
-            <td><a href="/movies/delete?id={{pelicula[0]}}"
-                    onclick="return confirm('¿Estás seguro de que deseas eliminar la película \'{{ pelicula[1] }}\'?');">
+            <td><a class="btn btn-warning text-light" href="/movies/edit?id={{pelicula[0]}}" title="Editar pelicula"><i class="bi bi-pencil-fill"></i></a></td>
+            <td><a class="btn btn-danger text-light" href="/movies/delete?id={{pelicula[0]}}"
+                    onclick="return confirm('¿Estás seguro de que deseas eliminar la película \'{{ pelicula[1] }}\'?');"
+                    title="Eliminar pelicula">
                     <i class="bi bi-trash-fill"></i></a></td>
         </tr>
         {% endfor %}
